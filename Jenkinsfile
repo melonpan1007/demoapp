@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull Code') {
             steps {
-                git git 'https://github.com/melonpan1007/demoapp.git'
+                git 'https://github.com/melonpan1007/demoapp.git'
             }
         }
 
