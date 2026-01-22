@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Pull Code') {
-            steps {
-                git 'https://github.com/melonpan1007/demoapp.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
