@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull Code') {
             steps {
-                git 'https://github.com/<yourusername>/demoapp.git'
+                git git 'https://github.com/melonpan1007/demoapp.git'
             }
         }
 
@@ -16,7 +16,11 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 8081:80 demoapp'
+                sh '''
+                docker stop demoapp_container || true
+                docker rm demoapp_container || true
+                docker run -d --name demoapp_container -p 8081:80 demoapp
+                '''
             }
         }
     }
